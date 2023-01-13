@@ -494,6 +494,8 @@ class FIFAOnline4Analysis(FIFAOnline4API):
                     tmp_df = add_info(tmp_df, ii['accessId'], ii['nickname'], i['matchId'], i['matchDate'], i['matchType'])
                     player_df = pd.concat([player_df, tmp_df])
 
+        # 중복 row 제거
+        shootdetail_df = shootdetail_df.drop_duplicates()
         # 좌표가 0인 슈팅 데이터 제외
         shootdetail_df = shootdetail_df[~((shootdetail_df['x'] == 0) & (shootdetail_df['y'] == 0))]
         # 좌표가 1넘는 슈팅 데이터 제외

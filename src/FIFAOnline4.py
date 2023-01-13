@@ -589,6 +589,9 @@ class FIFAOnline4Analysis(FIFAOnline4API):
 
 
     def save_model(self, X_train, X_test, y_train, y_test, param, save_model_nm):
+        """
+
+        """
         param['warm_start'] = True
         model = LogisticRegression(**param)
         
